@@ -1,7 +1,7 @@
 # discard and remove
 s1 = {1, 2, 3, 4, 5}
 s1.remove(3)
-print(s1) # KeyError: 6
+print(s1)  # KeyError: 6
 
 s2 = {1, 2, 3, 4, 5}
 s2.discard(6)
