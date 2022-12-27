@@ -1,12 +1,14 @@
 # globals () and local()
+# outside values are also coming in side
+
 a = 10
 b = 20
 def d1():
-    a = 100
-    b = 200
+    a = 10.0
+    b = 20.0
     print('Local', a, b)
-    print(globals()['a'], globals()['b'])
-    globals()['a']= 30
-    globals()['b'] = 40
-    print(globals()['a'], globals()['b'])
+    print('Before: ', globals()['a'], globals()['b'])
+    globals()['a']= 10
+    globals()['b'] = 20
+    print('After: ', globals()['a'], globals()['b'])
 d1()
