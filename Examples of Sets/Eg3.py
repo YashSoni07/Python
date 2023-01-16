@@ -9,10 +9,10 @@ print(s2)
 
 # pop
 s3 = {1, 2, 3, 4, 5}
-print(s3.pop()) # 9
+print(s3.pop())  # 9
 print(s3)
-print(s3.pop()) # 3
-print(s3.pop()) # 4
-print(s3.pop()) # 1
-print(s3.pop()) # 3
+print(s3.pop())  # 3
+print(s3.pop())  # 4
+print(s3.pop())  # 1
+print(s3.pop())  # 3
 print(s3)

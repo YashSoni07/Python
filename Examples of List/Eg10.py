@@ -1,4 +1,6 @@
 # Deep copy and Shallow
+# Deep copy operation on arbitrary Python objects. Is done by copy.deepcopy
+# Shallow copy operation on arbitrary Python objects. Is done by copy.copy
 
 import copy
 # in deep copy the original list will not be affected

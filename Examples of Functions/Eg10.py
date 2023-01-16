@@ -1,10 +1,10 @@
-#Goble and Local
+# Goble and Local
 
-a = 10
-b = 20
-def d1():
-    a = 100
-    b = 200
+a = 1
+b = 2
+def a1():
+    a = 10
+    b = 20
     print('Locals', a, b)
-d1()
+a1()
 print('Global', a, b)

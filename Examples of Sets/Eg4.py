@@ -1,7 +1,8 @@
-# Update
+# Update a set with the union of itself and others. By using (.update)
 s1 = {10, 20, 30, 40, 50}
+print(s1)  # Before
 s1.update([1, 2, 3, 4, 5])
-print(s1)
+print(s1)  # After
 
 s2 = {'A', 'B', 'C', 'D'}
 print(s2)

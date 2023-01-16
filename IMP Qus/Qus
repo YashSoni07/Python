@@ -1,0 +1,69 @@
+immutable vs mutable
+--------------------
+1.tuple      - 1.list
+2.frozenset  - 2.set
+3.bytes      - 3.bytearray
+4.str        - 4.dict (key:value)
+
+diff list and tuple
+-------------------
+list is unsafe and tuple is safe
+
+diff bw remove() and discard()
+------------------------------
+
+diff bw shallow-copy() and deepcopy()
+------------------------------------
+
+diff b/w pop and remove in list()
+---------------------------------
+
+diff b/w append() and extend()
+------------------------------
+
+pop behaviour in list, set, dict
+--------------------------------
+
+diff bw set and frozenset
+-------------------------
+mutable and immutable
+
+diff bw bytes and bytearray
+----------------------------
+immutable and mutable
+
+what is string
+--------------
+strings are sequence of characters
+string are immutable
+
+can i assign new position to list
+---------------------------------
+No
+Eg:
+l1 = []
+l1[0] = 10
+print(l1)
+can i assign new position to dict
+---------------------------------
+Yes
+d3 = {}
+d3[1] = "Avtar"
+d3[2] = "Avengers"
+print(d3)
+
+dict:
+=====
+what is dict in python and their methods
+can we modify the key and can we modify the value
+
+diff b/w input and eval
+=======================
+if i perform addition using input() the data get concat
+nature: string
+
+if i perform addition using eval() the data get added
+nature: typecasting
+
+diff bw == and is operator
+==========================

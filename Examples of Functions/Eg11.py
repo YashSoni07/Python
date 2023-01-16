@@ -1,14 +1,14 @@
 # Goble Keywords
-a = 10
-b = 20
-def d1():
+a = 1
+b = 2
+def a1():
     global c
     global d
-    c = 100
-    d = 200
+    c = 10
+    d = 20
     print('Goble', a)
-    print('Goble',b)
-    print('local',c)
-    print('Local',d)
-d1()
-print(c,d)
+    print('Goble', b)
+    print('local', c)
+    print('Local', d)
+a1()
+print(c, d)

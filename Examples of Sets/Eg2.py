@@ -14,7 +14,7 @@ s1.add(3)
 s1.add(3.5)
 s1.add(2)
 s1.add(3.0)
-print(s1) # {1, 2, 3, 3.5}
+print(s1)  # {1, 2, 3, 3.5}
 
 s1 = {1,2}
 s2 = {3,4}
@@ -35,3 +35,4 @@ print(l1)
 print(l1.copy())
 print(l1*1)
 print(l1[::])
+

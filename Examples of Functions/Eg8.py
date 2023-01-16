@@ -1,8 +1,8 @@
 # Global Variables
 # Scope Every Were
 
-a = 10
-b = 20
+a = 1
+b = 2
 def a1():
     print(a, b)
 a1()
