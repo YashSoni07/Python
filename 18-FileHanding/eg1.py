@@ -1,0 +1,5 @@
+f = open('one.txt','w')
+s = input("Enter Some Text :")
+f.write(s)
+print("File Created")
+f.close()
