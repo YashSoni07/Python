@@ -109,3 +109,8 @@
 #
 # for i in range(a):
 #     print(a1(i))
+
+# l1 = ['yash', 'soni']
+# d1 = {}
+# for l1 in d1:
+#     print(d1)
