@@ -1,6 +1,6 @@
 import mysql.connector
 
-conn = mysql.connector.connect(host="localhost", database='fisttable', user='root', password='root')
+conn = mysql.connector.connect(host="localhost", database='base1', user='root', password='root')
 
 # Creating the Cursor for Connection
 cursor = conn.cursor()

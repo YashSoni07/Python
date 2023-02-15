@@ -1,0 +1,395 @@
+﻿1)why tuple is immutable?
+the internal reference of the object cannot be changed 
+t=(1,2,[3,4])
+here t has an id,2 has id and [3,4] has id
+here id of 2 or [3,4] cannot be changed while we can add the data into the list[3,4]
+2)why tuple?
+	1)less memory,
+	2)less weighted (operation used in the tuple should be loaded),
+	3)for loop always has to check the data is modified or not
+	due to the reasons the tuple is faster and we prefer it than list
+((if the tuple has the list then it become unhashable))
+
+3)why dictionary?
+list and tuple doesn't tell about the data but has the value. 
+Dictionary says about the data also.has unique keys
+
+4)when to use set ?
+set:with 2 different data sets. in real time the data will be in lists,tuples,strs
+eg:set(l1).unionset(l2)
+
+5)what is list comprehension and lambda function?
+List comprehension:
+A list comprehension creates a new list by applying an expression or condition to 
+each element of the iterable
+
+Lambda function:Lambda function is an anonymous function and is defined by a keyword lambda,
+ which cannot be invoked by a function name.
+>>If you don’t want to use the code reusability then we can use lambda function. 
+Once the cursor goes for the next line then the allocated memory will be vanished 
+
+
+6)I have a file of 2gb with ram 1gb how to read the data?
+Firstly we need to split up the data into chunks . 
+As we have the 10gb data we reQuire 10 chunks it will hold the data in the form of the files. 
+the files are to be stored in the form of dictionary.
+The key in the dictionary holds the address of the file and the value is the data present in the file.
+The chunk file is the intermediate file.Once the data is loaded to the intermediate file. 
+It stores the data by using the available ram. 
+Then from each chunk we should load the data to the output file in the form of the array 
+so that the data can be merged up easily
+
+
+7)how to create public,private and protected function variable and classes
+ 	_ for protected  variable or function
+	__ for private variable or function
+
+8)imp of init file
+Init method is a constructor which we call in the oops concept. 
+This method is automatically called when an object is created
+
+9)What is the range and xrange?
+range is an iterator.iterator is predefined set of data(faster for less data)
+xrange is a generator.generator has no data but in runtime it generate the data.xrange is memory efficient(always slow)
+((if less data use range else go for xrange)) 
+
+10)Difference between method and function
+Simply, function and method both look similar as they perform in a similar way, 
+but the key difference is the concept of ‘Class and its Object‘.
+Functions can be called only by its name, as it is defined independently. 
+But methods can’t be called by its name only. 
+i.e. method is defined within a class and hence they are dependent on that class.
+ 
+11)Diff b/w sorted sort?
+A)Sort is method present in the list,sorted is the inbuilt function in python.
+when using the sort the list will be sort.
+
+12)*args and **kwargs allow you to pass multiple arguments or keyword arguments to a function
+A) If the number of keyword arguments is unknown, add a double ** before the parameter name:
+
+13)What is difference between authentication and authorisation?
+Authentication is nothing but the login in other words its the process of verifying the data
+                               OR
+User credentials like userid and password
+  
+Authorisation is the level of access provided for the user
+
+14)Difference between null==True and blank==True?
+null==True is for backend, which means it create the null column such that 
+if no data is provided the database will accept
+blank==True is for frontend, which means if the form is provided no data in that field, the form will accept
+
+15)What is generics?
+Generic is a programming library for Python that provides tools for generic programming.
+there is only one feature – multiple dispatch.
+
+16)Git commands? In proper way?
+>>git init
+>>git clone url
+>>git status
+>>git add
+>>git commit -m "initial commit"
+>>git remote add origin url........................
+>>git push -u origin master
+
+Q)write a function that take 2 args eg:5,2 
+o/p:11000 (5denotes no of digits, 2 denotes no. of 1’s?)
+
+Q)Custom exceptions?
+Q)How can you deploy a project
+
+Q)How to increase the performance of the database
+>>allocate more memory
+>>optimise queries
+>>database version
+>>stromger cpu
+
+Q)how the server knows the token has expired
+Q) What is a cluster in postgresql or mysql
+
+Q) What is lazy loading and Eager Loading 
+A)Eager loading brings all the objects and associated data objects at same times. 
+Eager loading uses joins (where possible) to fetch data from the database in as few queries as possible. 
+When a separate query is required, like in the case of a HasMany association,
+ a single query is emitted to fetch all the associated data for the current set of objects.
+
+Lazy loading loads the first level data object. 
+But when the association is called then the required data is fetched.
+ While this can save CPU time because possibly unused data is not hydrated into objects,
+ it can result in many more queries being emitted to the database.
+
+Q)What is vacuuming in PostgreSQL?
+A)Description. VACUUM reclaims storage occupied by dead tuples. 
+In normal PostgreSQL operation, tuples that are deleted or obsoleted by an update are not physically removed from their table; they remain present until a VACUUM is done.
+
+Q)How long does Postgres vacuum take?
+A)In our production deployments, vacuum operations often take at least 5-10 days. For various reasons, it's not uncommon for them to take 15-20 days, and we've seen some take upwards of 40 days
+
+Q)What is initdb?
+###############################################################################################################
+1)MRO-Method Resolution Order
+
+class A:
+    def m1(self):
+        print("am kc")
+
+class B:
+    def m1(self):
+        print("am kck")
+
+class C(A,B):
+    def m2(self):
+        print("am rk")
+--------------------------------------------------------------------------------------------------------
+c=C()                                                                                                   |
+c.m2()   #am rk                                                                                         |
+c.m1()   #here class A m1 method called because class C(A,B) here A is first so Aclass method executed. |
+                                    #suppose class C(B,A) here B is first So B class method executed    |
+--------------------------------------------------------------------------------------------------------
+class D(C,A):
+    def m3(self):
+        print("sk")
+
+d=D()
+d.m3()
+d.m1()
+
+2)DESTRUCTORS:
+class Test:
+    def __init__(self,no,name):
+        self.no=no
+        self.name=name
+        print("constructor is defined")
+
+    def __del__(self):     #here del is used to delte the objects data
+        print("destructor is startted delted the values")
+
+    def wish(self):
+        print(self.no,self.name)
+
+t1=Test(1,'kc')
+t2=Test(2,'kcn')
+t1.wish()
+del t1
+t1.wish()
+
+3)Method Overloading:
+class Method:
+    def m1(self,num1,num2):
+        print(num1+num2)
+
+    def m1(self,num1,num2,num3):
+        print(num1+num2+num3)
+
+m=Method()
+m.m1(10,20)   #it showing Error because python cal latest methods
+
+
+4)How to create unicode string in python ..what is the use of it ?
+Unicode is the map for code points
+python 3 defaults to Unicode and UTF-8
+All strings are Unicode by default and can contain any Unicode character
+Most unicode is valid for identifiers.
+>>mutliple UTF-8,UTF-16,UTF-32
+************************************************************
+5)what is csv,how to read csv?
+csv is nothing but data in comma separated value Ex:101,charan,2000
+
+#CREATING CSV FILE
+import csv
+header=['name','area']
+data=[
+    ['kc','sr'],
+    ['jk','Hybd']
+    ]
+with open("jkl.csv",'w',newline='') as csvfile:
+    writer=csv.writer(csvfile)
+    writer.writerow(header)
+    writer.writerows(data)
+
+#READING CSV FILE
+import csv
+with open("jkl.csv",'r') as csv_file:
+  reader=csv.reader(csv_file)
+  for i in reader:
+      print(i)
+
+6)l=[5,10,15,30]
+y=sum(l)
+print(y)
+
+l=[5,10,15,30]
+total=0
+for i in range(len(l)):
+    total=total+l[i]
+print(total)
+-------------------------------------------------------
+7)Numpy stands for Numerical python,scipy standas for scentific python 
+Both numpy and scipy libraries of python,these are used for various operations of the data.
+
+NumPy has a faster processing speed than other python libraries. 
+NumPy is generally for performing basic operations like sorting, indexing, and array manipulation. 
+The most important feature of NumPy is its compatibility.
+
+SciPy builds on NumPy. All the numerical code resides in SciPy. 
+The SciPy module consists of all the NumPy functions.
+--------------------------------------------------------
+8)rotate an array n times
+input = [1,2,3,4,5]
+rotate = 4
+output = [5,1,2,3,4]
+
+ANS:
+s=[1,2,3,4,5]
+print(s)
+k=s[4:]+s[:4]
+print(k)
+------------------------------------
+9)I want 0:51 
+         1:52 
+         2:53
+d=[i for i in range(51,101,1)]
+print(d)
+for i,values in enumerate(d):
+        print(i,values)
+------------------------------------------------------------------
+##REGULAR EXPRESSIONS:
+9)extracting email & dates & both 
+import re 
+x = re.findall("\d{1,2}/\d{1,2}/\d{4}","hi 12/01/2020 hi sir how 22/9/2021 is 1/1/2018")
+print(x)
+y = re.findall("[a-z]+@[a-z]+.[a-z]+","hi ratan@gmail.com this is good anu@gmail.com hi")
+print(y)
+y = re.findall("\w+@\w+.\w+","hi ratan@gmail.com this is good anu@gmail.com hi")
+print(y)
+x = re.findall("\d{1,2}/\d{1,2}/\d{4}|\w+@\w+.\w+","hi 12/01/2020 hi ratan@gmail.com")
+print(x)
+--------------------------------------------------------
+10)I WANT PRINT ONLY IDS:
+print("Hello")
+d = {
+	"processors": [
+		{
+			"id":1,
+			"name": "p1"
+		},
+{
+			"id":2,
+			"name": "p2"
+		},
+		{
+			"id":3,
+			"name": "p3"
+		}
+	]
+}
+
+l = [i['id'] for i in d['processors']]
+print(l)
+
+11)NAMING SYSTEM IN PYTHON:
+A namespace is a system that has a unique name for each and every object in Python. 
+An object might be a variable or a method. 
+Python itself maintains a namespace in the form of a Python dictionary.
+
+Names:Names are used to identify a object.these are called identifiers.
+  Ex:class name ,variable name,function name
+
+>>Name space is a system which controls all the names in system
+it allows you to reuse the name in your program.
+Ex:
+x=4
+print(x)  #4
+x=5
+print(x) # 5 rearrange the value
+----
+x=4
+y=5
+print(x)#4
+print(y) #5
+##supose we have 1000 names in ur function we dont have reusing the names so such cases by 
+using namespace to reuse the name in ur program.
+>>To avoid naming complicts inthe programs.
+>>Mainly 3types:1)inbuilt 2)Global 2)Local scope
+
+>>Django is an open-source framework for backend web applications based on Python — 
+one of the top web development languages. Its main goals are simplicity, flexibility, reliability, and scalability. 
+Django has its own naming system for all functions and components (e.g., HTTP responses are called “views”).
+
+12)RANGE(),XRANGE()
+       range()                           xrange()
+>>here both are in built functions in python used to genarate list of integers with in the range.
+>>it returns a list object                  >>it returns a genarator object
+>>it consumes more memory compared          >>less
+to xrange
+>>adition,slicing operations can be         >>No such operations are performed because it returns 
+perfomed,because range returns list          genarator object
+of integers.
+>>Not using yield keyword                  >>here using yield keyword
+>>slower than xrange                       >>faster than range
+----------------------------------------------------------------------
+
+Write a program that accepts a sequence of whitespace separated words as input and prints the words after removing all
+duplicate words and sorting them alphanumerically.
+
+Suppose the following input is supplied to the program:
+
+Input: hello world and practice makes perfect and hello world again
+
+Then, the output should be:
+
+Output: again and hello makes perfect practice world'''
+-----------------------------------------------------------------------------
+s="hello world and practice makes perfect and hello world again"
+y=s.split()
+print(y)
+k=list(set(y))
+k.sort()
+print(" ".join(k))  #again and hello makes perfect practice world
+##############################################################################################
+# The challenge is to find all the pairs of two integers in an unsorted array that sum up to a given S.
+Write a function to take an array of numbers and sum as inputs.
+# It should return an array of integer pairs adding up to the sum.
+
+# Example: if the array is [10, 5, 2, -4, 8, 11] and the sum is 7, your program should return an array of pairs summing to 7, i.e,
+# [ [11, -4], [2, 5] ]
+# because 11 + -4 = 7 and 2 + 5 = 7.
+
+#write on fib series
+from itertools import combinations
+array=[10, 5, 2, -4, 8, 11]
+s=7
+comb=combinations(array,2)
+d=[]
+for i in comb:
+    if sum(i)==7:
+        d.append(i)
+
+print(d)  #[(5, 2), (-4, 11)]
+
+
+
+def fib(num):
+    result=[0]
+    x,y=0,1
+    while num>y:
+        result.append(y)
+        x,y=y,x+y
+    return result
+
+print(fib(10))
+/////////////////////////////////////////////////////////////////////////////
+#here based in keys:
+from collections import OrderedDict 
+far={'pig': 67,'dog': 11,'cow': 15, 'chicken': 97, 'cat':16}
+d= OrderedDict(sorted(far.items()))
+print(d)
+
+#here based on values 
+far={'pig': 67,'dog': 11,'cow': 15, 'chicken': 97, 'cat':16}
+k=sorted(far.items(),key=lambda item:item[1] ,reverse=True)
+print(k)
+#here i want first 2 height values
+print(k[0])
+print(k[1])
+----------------------------------------------------------------------

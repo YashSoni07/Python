@@ -1,0 +1,89 @@
+File Handling
+=============
+open() function takes two parameters 'filename' and 'mode'
+
+Modes
+=====
+'r'	Open a file for reading. (default)
+'w'  	Open a file for writing. Creates a new file if it does not exist or truncates the file if it exists.
+'x'	Open a file for exclusive creation. If the file already exists, the operation fails.
+'a'	Open for appending at the end of the file without truncating it. Creates a new file if it does not exist.
+'t'	Open in text mode. (default)
+'b'	Open in binary mode.
+'+'  	Open a file for updating (reading and writing)
+'x'	Open for exclusive creation
+a+	:append and read
+r+	:read and write
+w+    	:write and write
+
+
+read() method
+=============
+read() method returns the whole text, but you can also specify how many characters you want to return:
+
+Eg:
+f = open('hello.txt', 'r')
+s = f.read() # f.read(2)
+print(s)
+f.close()
+
+readline() method
+=================
+You can return one line by using the readline() method:
+
+Eg:
+file = open('six.txt', mode='r')
+f = file.readline()
+print(f)
+
+By calling readline() two times, you can read the two first lines:
+
+Eg:
+file = open('six.txt', mode='r')
+f = file.readline()
+print(f)
+f = file.readline()
+print(f)
+
+
+readlines() Method
+==================
+Return all lines in the file, as a list where each line is an item in the list object
+
+Eg:
+file = open('six.txt', mode='r')
+f = file.readlines()
+print(f)
+
+['NameOne\n', 'NameTwo\n', 'NameThree\n', 'NameFour\n', 'NameFive\n', 'NameSix']
+
+tell() method
+=============
+This method returns the current position of the file read/write pointer within the file. 
+It`s position starts from zero
+
+Eg:
+f = open("hello.txt", 'r')
+print(f.tell())  # 0
+print(f.read())  # Hello, Hi How are you
+print(f.tell())  # 21
+
+
+seek() method
+=============
+This seek() method is used to change the position of the cursor
+The cursor is always started from beginning.
+
+Eg:
+f = open("hello.txt", 'r')
+print(f.tell())  # 0
+print(f.read(2))  # He
+f.seek(0)  # seek will change the position
+print(f.read())  # Hello, Hi How are you
+
+
+write() method
+==============
+write() method is used to write the string data
+writelines() method writes all strings in list/tuple/set
+

@@ -1,0 +1,8 @@
+
+
+Python generators are a simple way of creating iterators
+Function that returns iterable set of items is called Genarators.
+The way of implementing these iterators are called Genarators.
+
+By using yield keyword ,where it is using it is a Genarator.
+yield is works like as a standard return keyword

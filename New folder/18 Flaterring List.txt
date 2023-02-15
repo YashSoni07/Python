@@ -1,0 +1,51 @@
+Flattening:
+Hence, flattening such a list of lists means getting elements of sublists into a one-dimensional array-like list.
+
+Eg1:
+# Flatten List using Nested for Loop
+nst = [ [1, 2, 3, 4], ["NameOne", "NameTwo", "NameThree"], [10.0,20.0,30.0]]
+l=[]
+for i in nst:
+    for element in i:
+        l.append(element)
+print(l) 
+
+# [1, 2, 3, 4, 'NameOne', 'NameTwo', 'NameThree', 10.0, 20.0, 30.0]
+
+**********************************************************************************
+
+Eg2:
+# Flatten List using List Comprehension
+nst = [ [1, 2, 3, 4], ["NameOne", "NameTwo", "NameThree"], [10.0,20.0,30.0]]
+flatlist = [i for lst in nst for i in lst]
+print(flatlist) 
+
+# [1, 2, 3, 4, 'NameOne', 'NameTwo', 'NameThree', 10.0, 20.0, 30.0]
+
+***********************************************************************************
+
+Eg3:
+# Flatten List using the reduce() Function of functools
+from functools import reduce
+
+nst = [ [1, 2, 3, 4], ["NameOne", "NameTwo", "NameThree"], [10.0,20.0,30.0]]
+flatlist = reduce(lambda a,b:a+b, nst)
+print(flatlist)
+
+# [1, 2, 3, 4, 'NameOne', 'NameTwo', 'NameThree', 10.0, 20.0, 30.0]
+
+# Note
+# the + symbol is defined as a concatenation operator for sequence data types (list, tuple, and string).
+
+********************************************************************************************************
+
+Eg4:
+from functools import reduce
+from operator import concat
+
+nst = [ [1, 2, 3, 4], ["NameOne", "NameTwo", "NameThree"], [10.0,20.0,30.0]]
+flatlist = reduce(concat, nst)
+print(flatlist)
+
+# [1, 2, 3, 4, 'NameOne', 'NameTwo', 'NameThree', 10.0, 20.0, 30.0]
+

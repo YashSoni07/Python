@@ -1,0 +1,9 @@
+Monkey Patching: 
+===============
+01.Changing/Modifying the behavior of object at runtime
+02.It is often used to replace a method on the module or class level with a custom implementation.
+
+Note:
+A monkey patch is opening an existing class and redefining an existing method or adding a new method of 
+dynamic languages without altering the original source code.
+

@@ -1,0 +1,40 @@
+What is Python?
+Python Is a Scripting language and its Programing language
+    Histroy :-
+    * Guido Van Rossum Invented Py
+    * Started in Starting of 1990
+    * Basic Version in 1989
+    * Fist Stable Version 1.0 in 1994
+    * Right now the version is 3.x
+
+    Features Of Python :-
+    * Its Portable (OS platform Independent)
+    * Huge Library Support
+    * General purpose language
+    * Interpreted language
+-------------------------------------------------------
+What is Data types :-
+
+- Numeric data types: int, float, complex
+
+- String data types: str
+
+- Sequence types: list, tuple, range
+
+- Binary types: bytes, bytearray, memoryview
+
+- Mapping data type: dict
+
+- Set data types: set, frozenset
+---------------------------
+What is Variables :- Memory Allocation of a Variable into the system.
+--------------------------------------------------------------
+What is Operators :-
+
+- Arithmetic operators
+- Assignment operators
+- Comparison operators
+- Logical operators
+- Identity operators
+- Membership operators
+- Bitwise operators

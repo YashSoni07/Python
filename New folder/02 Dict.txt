@@ -1,0 +1,14 @@
+Dict:
+
+1.We can define a dictionary explicitly as a series of key/value pairs separated by comma.
+2.In python it is illegal to assign a position to a list, but we can assign a position to dictionary
+
+Eg1:
+# Merge Dictionaries using for Loop
+d1={'a': 20, 'b': 25, 'c': 40, 'd': 50}
+d2={"x":100, "y":200, "z":25}
+
+for keys, values in d2.items():
+    d1[keys] = values
+    # print(keys, values)
+print(d1)

@@ -1,0 +1,5 @@
+Duck Typing
+===========
+01.Duck Typing is a term commonly related to dynamically typed programming languages and polymorphism.
+02.Duck Typing refers to the principle of not constraining or binding the code to specific data types.
+

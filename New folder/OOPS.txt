@@ -1,0 +1,22 @@
+Instance Variable
+=================
+1.Instance V and Instance Method
+2.Instance V and Constructor
+3.Instance Method and Constructor
+4.Modify Instance V using object ref
+5.Get Instance V using getattr(object, 'instance variable')
+
+6.Add New Instance Variable after the object creation
+  #object_referance.variable_name = value
+  #p.productCost = 10000.00
+  #print(p.pId, p.pName, p.productCost)
+
+7.delete instance variable
+  #del p.pId
+  #print(p.pId) # AttributeError: 'Product' object has no attribute 'pId'
+
+8.delattr() # delattr(object, 'instance variable')
+  delete instance variable using delattr()
+  #delattr(p.pId, 'productId') # AttributeError: 'int' object has no attribute 'productId'
+9.Access Instance Variable from another class
+10.List all Instance variables

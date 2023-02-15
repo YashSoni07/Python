@@ -1,0 +1,832 @@
+﻿1). Why Python? What is the version you’re working on?
+>>python is multi paradism programming lang... or high level genaral pupose 
+programming lang.. invented by Guido vaan Rossum.
+>>puthon --version  #here check it once on ur cmd
+-----------------------------------
+2). What is Packing? Give an example:
+>>Mainly using of swapping of variables
+PACKING:
+>>A python tuple can be created without parentheses.this called tuple packing.
+Ex:
+a='charan',25,'5.6 ft','kadapa'
+a=('charan',25,5.6,'kadapa') #here python background create a tuple format so this is packing.
+UNPACKING:
+>>Python tuples unpacking happens when we asign values from a tuple to a sequence
+of variables in python.
+Ex:
+(name,age,height,address)=a   #values in a assigned to 'charan',25,'5.6 ft','kadapa' 
+                    #here a is tuple so a=('charan',25,'5.6 ft','kadapa')
+     #(name,age,height,address)=('charan',25,'5.6 ft','kadapa')   #here assign variables to values
+name='charan'
+addres='kadapa'
+
+EX:
+x=2
+y=3
+x,y=y,x  #here swapping of variables
+   #(2,3) this is packinng   2,3=y,x
+   #here y=2,x=3 this is unpacking
+---------------------------------------
+3). Differentiate b/w List & Tuple.
+     List  :                              tuple:
+>>it is mutable we can do            >>it is immutable we cant do modification
+modifications
+>>[]   Ex:l=[1,2,3]                  >>(,)   t=(1,2,3)
+>>occupies more space                >> occupies less space
+>>low perfomance compared to         >>high perfomance compared to list.
+tuple.
+>>heavy weight                     >>less weight
+>>significance of list is []       >>significance of tuple is(,)
+
+Explanation:
+l=[1,2,3,4,5,6,7]
+t=(1,2,3,4,5,6,7)
+import sys
+print(sys.getsizeof(l))#56bytes
+print(sys.getsizeof(t))#48bytes  
+            #here list & tuple having same data but it occupies different memorys.
+--------------------------------------
+4. Can we perform indexing on sets?
+>>No because
+>>set elements are immutable but set is mutable and set not allows duplicates 
+so indexing is not possible
+---------------------------------------
+5. What is Dictionary? How it is a different from other packed data items or 
+packed data types.
+>>In dict data can be represented in key,values format
+>>here keys are unique and imuttable data type.
+>>dict is unordered and duplicates are not allowed.
+------------------------------------------
+6. What is Recursive Function?
+>>A function calling itself is called recursive function.
+#here without using recursion
+def fact(num):
+    result=1
+    while num>0:
+        result=result*num
+        num=num-1
+    return result
+print(fact(5)) #120
+#here using recursion:
+def fact(num):
+    if num==1:
+        return 1
+    else:
+        return num*fact(num-1)
+fact(6)   #120
+------------------------------------------
+7. What is Lambda Function?
+>>A function having without name is called lambda function or anonymous function.
+>>it having multiple parameter but single line statement.
+>>If you don’t want to use the code reusability then we can use lambda function. 
+Once the cursor goes for the next line then the allocated memory will be vanished 
+Ex:
+def fun(x):
+    return x*x
+print(list(map(lambda x:x*x,(1,2,3,4)))) #[1, 4, 9, 16] 
+---------------------------------------------
+8). Explain the concept of Functional Programming?
+>>For the code reusability we can able to go for functions.
+Every function contains three parts 
+  A)Function declaration : Declare the function by using def keyword 
+  B)Function body : The main logic of the function.
+  C)Function calling : Call the function by using function name 
+
+def wish(): # function declaration 
+   print("good morning")
+   print("good Evening")    # function body 
+wish()# function calling 
+---------------------------------------------
+9). What is class?
+>>class is logical Entity it contains logics.
+>>collections of methods ,variables and poperties.it is logical Entity.
+>>class name Must Camel Case
+        OR
+>>the complete representation of real world entity(object) is called class.
+---------------------------------------------
+9). What is class?
+>>class is logical Entity it contains logics.
+>>collections of methods ,variables and poperties.it is logical Entity.
+>>class name Must Camel Case
+        OR
+>>the complete representation of real world entity(object) is called class.
+-----------------------------------------------
+10).What is Object?
+>>instance of a class or duplicate copy of a class.physical enity
+>>A real world entity with identity ,functionality and properties.
+-----------------------------------------------
+11).What is class member? 
+>>A Class is like an object constructor, or a "blueprint" for creating objects.
+>>use keyword class
+>>A Class Member is a person or entity who belongs to a specific group.
+>>class members are functions,methods,properties.
+-----------------------------------------------
+12).What are instance members?
+The members of a class that can not be accessed without creating an instance
+for the class are called as instance members
+
+class Student:
+     def __init__(self,name,address):  #these are static variables
+           self.name=name              #these are instance variables
+           self.address=address
+--------------------------------------------------
+13).What is class method? 
+>>A class method is a method which is bound to the class and not the object of the class.
+>>For example it can modify a class variable that will be applicable to all the instances.
+------------------------------------------------------------
+14).Why do we use self? And what value it has?
+>>self is a default argument in oops.
+>>it must bre placed as a first argument in the method defination.
+>>It holds object address
+------------------------------------------------------------
+15).What cls contains in class methods?
+16). What is the values which is present in cls?
+>>class is a collections of functions,variables,properties.
+-------------------------------------------------------------
+17. What is Decorators? Give an example.
+>> We can able to pass function as an argument to another function
+>>Extending the functionalitys of the executing functions ,
+without modifying the current functionalitys.
+
+Ex:1
+def div(a,b):
+   print(a/b)
+div(2,4)
+
+def div(a,b):
+    @decarator
+    if (a<b):
+        a,b=b,a
+        print(a/b)
+div(2,4)
+
+EX:2
+def outer():
+    def inner():
+        # before functionality
+        print("*" * 50)
+        print("am in banglore")
+        print("#" * 50)
+    inner()
+
+outer()
+-------------------------------------------------------------
+18.What is iterator? How do you construct user defined iterator?
+>>An iterator is an object that contains a countable number of values.
+>>It contains 2methods __iter__() and __next__().
+>>Lists, tuples, dictionaries, and sets are all iterable objects
+EX:1
+l=[1,2,3,4]
+it=iter(l)  #Here it keyword used to iterate the data
+print(it)
+print(l[0])  #1 Here display l values by using indexing
+
+print(it.__next__())
+print(it.__next__())
+print(it.__next__())
+print(it.__next__()) #isit gives next values
+-------------------------------------------------------------
+19. What are Generators? How it is different from iterators?
+>>Python generators are a simple way of creating iterators
+>>Function that returns iterable set of items is called Genarators.
+>>the way of implementing these iterators are called Genarators.
+
+>>By using yield keyword ,where it is using it is a Genarator.
+>>yield is works like as a standard return keyword
+EX:
+def cube():
+    n=1
+    while n<=10:
+        result=n**3
+        n=n+1
+        yield result
+x=cube()       #Here Yield is used to process other Iterations also.
+for i in x:
+    print(i)
+EX:2
+def square(n):
+    for i in range(n):
+        return i**2
+print(square(4))      #0   here using return disply one iterator
+
+
+def square(n):
+    for i in range(n):
+        yield i**2
+print(square(4))
+for i in square(4):
+    print(i)         #0,1,4,9   #here using yield display all iterators
+------------------------------------------------------------
+20.Differentiate b/w iterators & generators
+>>here must be refer 18 & 19 questions for defination purpose.
+            Iterators:                        Genarators:
+>>implemented using class             >>implemented using function
+>>we create a iterator we can         >>we can create  a genarator in side function 
+use iter.                              along with yield keyword.yield is saves the local variables
+>>compared Genarator iter is slow.    >>it is fast
+-------------------------------------------------------------
+21.How do we pass the values from subclass constructor to a Super class 
+Constructor?
+>>By using super().__init__(self))
+--------------------------------------------------------
+22.Why do we use init method?
+>>Init method is a constructor which we call in the oops concept. 
+>>This method is automatically called when an object is created
+--------------------------------------------------------------
+23. What is the values stored in __name__?
+>>The value of __name__ attribute is set to “__main__” when module is run
+as main program.Otherwise, the value of __name__ is set to contain the name of the module. 
+>>We use if __name__ == “__main__” block to prevent (certain) code from being 
+run when the module is imported
+------------------------------------------------------------
+24.Explain the priority of execution?
+>>the default except must be last statment.
+try:
+ n = int(input("enter a num:"))
+ print(10/n)
+except:
+ print("exception raised")
+except ZeroDivisionError as a:
+ print("expetio info=",a)
+ print("Rest of the app")
+
+SyntaxError: default 'except:' must be last
+-------------------------------------------------------------
+25.What is overloading? How do you achieve it?
+>>Defining a method more than once with same name and different signature is called 
+method overloading.
+>>we can implement method overriding inside a class.
+------------------------------------------------------------
+26.What is operator loading? How do you achieve it?
+>>defining the method more than once with the same name and diffrent signature.
+>>We can use same operator in multiple purposes.
+>>Python supports operator overloading.
+
+EXAMPLE: 
+>>'+' operator using for arthmetic addition and  string representation
+print(10+20) #30
+print("kovuru"+"charan")#kovurucharan
+
+>>'*'
+print(10*20)   #200
+print("kc*3")  #kckckc
+------------------------------------------------------------
+27.What is method overriding?
+>>Defining a method in child class with same name and same signature of parent class method.
+>>method overriding can be implemented in parent-child relation only.
+---------------------------------------------------------
+28. What is Inheritance? Explain the types of Inheritance?
+INHERITANCE:-
+>>The process of acquiring properties from parent to child class is called inheritance.
+
+USES:
+>>we can able to create new methods in child class
+>>we can update the parent class methods in child class
+>>we can enhance the parent class methods in child class
+
+TYPES:
+1)single
+2)Multi level
+3)hierarchical
+4)multiple
+5)Hybrid
+--------------------------------------------------------------
+29.What is the use of format function?
+>>Formatting refers to the appearance or presentation of your essay.
+>>With Python 3.0, the format() method has been introduced for 
+handling complex string formatting more efficiently.
+>>This method of the built-in string class provides functionality for 
+complex variable substitutions and value formatting.
+-----------------------------------------------------------------------
+30.Does Python support multiple inheritance? If yes. Explain with an ex.
+>>Yes
+class A:
+    def m1(self):
+        print("am kc")
+
+class B:
+    def m1(self):
+        print("am kck")
+
+class C(A,B):
+    def m2(self):
+        print("am rk")
+
+
+c=C()
+c.m1() #am kc
+c.m2() #am rk
+--------------------------------------------------------------------
+31.Explain the modules based on its functionalities. Sys & OS modules?
+>>Sys and Os both are inbuilt modules in python
+>>Os like mkdir,rmdir  like these functions.
+--------------------------------------------------------------------
+32.Is the name self is compulsory in member functions? Or can we give any 
+other name?
+>>Self is a convention and not a Python keyword . 
+>>self is parameter in Instance Method and user can use another parameter name in place of it. 
+>>But it is advisable to use self because it increases the readability of code, 
+and it is also a good programming practice
+----------------------------------------------------------------
+33. Differentiate b/w member functions & class methods.
+>>both are same 
+>>we call it is an function in procedure oriented lang...,method in oops.
+Functions can be called only by its name.
+But methods can’t be called by its name only. 
+imethod is defined within a class and hence they are dependent on that class.
+-------------------------------------------------------------
+34. Explain the principles of exception handling?
+>>exception handling in python managed by using try,except,else,finally,raise
+case:1--->>success cases
+try:
+except
+else
+finally
+    #here no errors in try block ,try ,else,finally block executed
+
+case:2--->>Failure cases
+try:
+except
+else
+finally
+    #here errors in try block ,so except ,finally block executed
+
+   ##finally block is execyted in success and failure conditions
+----------------------------------------------------------------
+35.Why do we use RAISE?
+>>Raise keyword is used to raise an exception
+Ex:
+try:
+   print("raising exception")
+   raise zerodivisionError
+except zerodivisionError:
+   print("zero,is being performed")
+
+OUTPUT:
+raising exception
+"zero,is being performed"
+----------------------------------------------------------------
+36.What is the use of ASSERT?
+Assertion is used to debug the application.
+debug : identifying the error & rectify the error.
+
+syntax: assert condition , msg
+if the condition is success nothing happened: application executed normally 
+if the condition is fail, we will AssertionError with msg.
+EX: 
+name = input("Enter u r name:")
+# success means nathing happen
+assert name=="ratan","something is wrong"
+print("your name is working good.....")
+
+Enter u r name:ratan
+your name is working good.....
+
+Enter u r name:anu
+AssertionError: something is wrong
+----------------------------------------------------------------
+37. What is the use of Finally in exception handling? How it is different from 
+Except?
+>>finally block is executed in both the conditions like normal and abnormal
+conditions.(failure and success condition the finally block is executed)
+-------------------------------------------------------------------
+38. Why Python is called as Dynamic typed programming language?
+>>Yes,python is Dynamic typed pro.. lang.. 
+>>here no need to give data type of variable Ex: a=20
+-----------------------------------------------------------------
+39. What is Hybrid, Multiple, Multi-level, Hierarchy Inheritances? With an ex.
+#Type of inheritance.
+1. Single inheritance: one parent with one child.
+class A:
+ pass
+class B(A):
+ pass
+                    A
+                    |
+                    B
+2. multi-level:
+class A:                      
+pass
+class B(A):
+pass
+class C(B):
+pass 
+                     A
+                     |
+                     B
+                     |
+                     C
+3.hierarchical inheritance: one parent with multiple child classes
+class A:
+ pass
+class B(A):
+ pass
+class C(A):
+ pass
+                     A
+                    / \
+                  B(A)  C(A)
+
+4. multiple inheritance: multiple parent classes with one child
+class A:
+ pass
+class B:
+ pass
+class C(A,B):
+ pass
+                          A B
+                          \ /
+                         C(A,B)
+5. hydrid inheritance: hierarchical + multiple
+class A:
+  pass
+class B(A):
+  pass
+class C(A):
+  pass
+class D(B,C):
+  pass
+                           A
+                          / \
+                       B(A)  C(A) #here one parent multiple childs[hierarchaical]
+                          \ /
+                           D(B,C) #multiple parents with single child[multiple inheritance]
+----------------------------------------------------------------------------------
+40. What are different types of functions available in Python?
+There are two basic types of functions:
+>>A)built-in functions: 
+The built-in functions are part of the Python language; for instance dir() , len() , or abs() . 
+>>>>B)user defined functions:
+The user defined functions are functions created with the def keyword.
+----------------------------------------------------
+41. How do you write a data into a file?
+Ex:
+f=open("kc.text",'w') #here kc is file name ,w is mode(write) of the file
+f.write("am charan")
+f.close()
+----------------------------------------------------
+42. How do you read the data from a file?
+f=open("kc.text",'r') #here kc is file name ,r is read of the file
+f.read()  #suppose we want to read 10chars  f.read(10)
+f.close()
+-----------------------------------------------------
+43. How do you tell the position of the cursor in a file?
+>>by using f.tell()  #here f is filename
+------------------------------------------------------
+44. How to transfer one file into another file?
+f=open("q.txt","r")
+data=f.read()
+f1=open("r.txt","w")
+f1.write(data)
+f.close()
+f1.close()
+--------------------------------------------------------
+45. What are modules?
+>>modules are nothing but files
+Ex:os,sys,random,re,datetime,json,collections,itertools
+---------------------------------------------------------
+46.How do you find out the number of data items present in the collection of 
+data items?
+>>by using dir
+l=[1,2,3,4,5]
+print(dir(l))  #here display total methods in list
+---------------------------------------------------------
+47.What is the static method? How do you create the static method?
+>>a static method needs no specific parameters.
+>>We generally use static methods to create utility functions.
+>>@staticmethod decorator to create a static method in python
+
+Ex:
+>>Static method has to be decorated with @staticmethod
+ 1st argument not self and not a cls
+    # We can able to call from `class` or an `object`
+class Student:
+    def __init__(self,fname,lname):
+        self.fname=fname
+        self.lname=lname
+    @staticmethod
+    def full_name(fname, lname):
+        return f"{fname} {lname}"
+
+s=Student("kc","rk")
+print(s.full_name("kc","rk"))
+-------------------------------------------------------------------
+48. Does Python supports Object oriented principles? If yes. Explain.
+YES
+>>Inheriatance,Abstraction,Polymorphism,Encapslation
+-------------------------------------------------------------------
+49.Explain the data types in Python?
+>>Data types:numbers:int.float,complex(3+5j),
+             boolean data types:True,False
+             strings
+>>Data structures in python:list,tuple,strings,dictionary,set,frozen set.            
+------------------------------------------------------------------
+50.What is the use of WITH?
+>>WITH statement in python is used in expection handling, to make the
+code cleaner and much readable.
+EX:
+with open("file name",'w') as file:
+      file.write("hello world")
+------------------------------------------------------------------
+51.How do we use else-if function from the module OS?
+>>more than 2 conditions we can use
+a=200
+if a==10:
+    print("charan")
+elif a==20:
+    print("kc")
+elif a==30:
+    print("rk")
+else:
+    print("sravya")  #Sravya
+------------------------------------------------------------------
+52.How do we get the file number?
+f.fileno()
+------------------------------------------------------------------
+53.Explain the modes of operation done on File?
+Mode Description
+'r'  Open a file for reading. (default)
+'w'  Open a file for writing. Creates a new file if it does not exist or truncates the file if it exists.
+'x'  Open a file for exclusive creation. If the file already exists, the operation fails.
+'a'  Open for appending at the end of the file without truncating it. Creates a new file if it does not exist.
+'t'  Open in text mode. (default)
+'b'  Open in binary mode.
+'+'  Open a file for updating (reading and writing)
+'x'  Open for exclusive creation
+ a+ :append and read
+ r+ : read and write
+ w+ :write and write
+------------------------------------------------------------------
+54.How to create user defined iterators?
+------------------------------------------------------------------
+55. What is the use of RANGE in PYTHON?
+>>same as below 59Q
+------------------------------------------------------------------
+56.Does Python supports SWITCH statement?
+>>not possible 
+>>here am using if,else,elif
+------------------------------------------------------------------
+57.Explain the looping in Python?
+1)FORLOOP ALONG WITH VALUES:
+l=[1,2,3,4,5,6,7,8,9]
+for i in l:
+    print(i)  #or print(i,end="")
+
+2)FORLOOP ALONG WITH INDEXES:
+l=[1,2,3,4,5,6,7,8,9]
+for i in range(len(l)):
+    print(l[i])
+###############
+**Where It is using forloop and where it is using while loop
+>>Forloop having intialization,condition,increment but while loop
+having only Condition.
+>>In whileloop we have to planning for initialization ,increment.
+for loop no need to given.
+
+3)WHILELOOP:
+
+A)Whille loop with values
+i=0
+while i<10:
+    print("kc")
+    i=i+2       #kc kc kc kc kc
+B)While Loop With Indexes
+l=[1,2,3,4,5,6,7,8,9]
+i=0
+while i<len(l):
+    print(l[i])
+    i=i+1
+------------------------------------------------------------------
+58.What is JSON? Explain how do you convert normal format into JSON 
+format?
+>>Java script object notation
+>>json is used to store and transfer the data.
+
+Example of json data:
+    a. Declare the json data using: { } 
+    b. The json contains the data in key: value pair format. 
+    c. In json the keys must be strings & values can be any type.
+Type conversion process,
+         a. python to json : dumps() : serialization/marshaling 
+            Ex:json_data = json.dumps(py_data)
+               print(json_data)
+         b. json to python : loads() : deserialization / un-marshaling
+            EX:py_data = json.loads(json_data)
+               print(py_data)
+------------------------------------------------------------------
+59.Differentiate b/w Range & XRange.
+  range()                           xrange()
+>>here both are in built functions in python used to genarate list of integers with in the range.
+>>it returns a list object                  >>it returns a genarator object
+>>it consumes more memory compared          >>less
+to xrange
+>>adition,slicing operations can be         >>No such operations are performed because it returns 
+perfomed,because range returns list          genarator object
+of integers.
+>>Not using yield keyword                  >>here using yield keyword
+>>slower than xrange                       >>faster than range
+--------------------------------------------------------------
+60.What are membership operators? Why do we use it?
+>>in and not in these are membership operators in python
+IN: "in" operator return true if a character or the entire substring is present in the 
+specified string, otherwise false.
+NOT iN: "not in" operator return true if a character or entire substring does not exist in 
+the specified string, otherwise false.
+EX:
+msg = "hi charan"
+print("charan" in msg)      #True
+print("k" in msg)           #False
+print("kumar" not in msg)   #True
+print("hi" not in msg)      #False
+-----------------------------------------------------------------
+61.What is the use of IS operator?
+>>It is identity operator in python,Mainly using for memory comparision
+>>IS:True if the operands are identical(refer to the same object)
+>>IS NOT:True if the operands are not identical( do not refer to the same object)
+**To print the memory address use : id() 
+**To perform memory comparison use is & is not
+d1 = [10,20,30]
+d2 = [40,50,60]
+d3 = d1 # d3 pointing to d1 
+print(id(d1))
+print(id(d2))
+print(id(d3))
+#memory comparison: is, is not 
+print(d1 is d2)
+print(d1 is d3)
+print(d1 is not d2)
+print(d1 is not d3)
+-----------------------------------------------------
+62.What is Floor division operator?
+>>floor division gives only int values
+x,y=15,4
+print(x//y) #3  here it gives only Int
+-----------------------------------------------------
+63.Why do we us AS?
+>>here AS is used to create alias names.
+Ex:
+import calendar as c        #here calender alias name as c
+print(c.month_name[1])
+-----------------------------------------------------
+64.How to concatenate two strings?
+>>By using + operator to perform concatenate two strings
+Ex:
+s1="sk"
+s2="rk"
+print(s1+s2)  #skrk
+-----------------------------------------------------
+65. What is the use of JOIN function?
+>>The join() method is a string method
+>>returns a string in which the elements of sequence have been joined by str separator.
+Ex:
+s=['c','h','a','r','a','n']
+p="".join(s)
+print(p) charan
+----------------------------------------------------
+66.Explain Split?
+>>Split returns a list 
+>>The size of list returned by a Split functions depends on the seperator
+>>Split can work without any arguments
+EX:
+name = "kovuru charan" 
+print(name.split()) #here not possing arguments # ['kovuru', 'charan']
+
+mobiles = 'Nokia, Samsung, Mi, Moto'
+print(mobiles.split(', ', 2)) # ['Nokia', 'Samsung', 'Mi, Moto']
+------------------------------------------------------
+67. Explain Pass by value & Pass by Reference?
+
+PASS BY VALUE:
+pass by value is nothing but ,copy of the original object is passed,
+changing the values of the copy object,will not change the value of original object.
+Ex:
+def hello(x):
+    x=45
+    print(x)
+    return
+x=15
+hello(x) #45
+print(x) #15
+
+PASS BY REFERENCE:
+pass by reference is nothing but,copy of the original object is passed,
+changing the values of the copy object,also edffect the value of original object.
+EX:
+a=[1,2,3,4]
+def hello(x):
+    x[0]=10
+    print(x)
+    return
+hello(a) #[10, 2, 3, 4]
+print(a) #[10, 2, 3, 4]
+------------------------------------------------------  
+68. Explain deep & shallow copy?
+#DEEP COPY:
+>>Here copy of the object is passed.
+>>Any changes made to the copy object,do not reflects the original object 
+import copy
+old=[[1,2,3,],[4,5,6],[7,8,9]]
+new=copy.deepcopy(old)
+print(new)
+new[0][2]='c'
+print(new)
+print(old)
+
+#SHALLOW COPY:
+>>Here copy of the object is passed.
+>>Any changes made to the copy object,which  reflects the original object.
+import copy
+old=[[1,2,3,],[4,5,6],[7,8,9]]
+new=copy.copy(old)
+print(new)
+new[0][2]='c'
+print(new)
+print(old)
+------------------------------------------------------
+69.How can we achieve shallow copy in Python?
+>>Same as above Example
+------------------------------------------------------
+70.What is the output we will get when we print an Object?
+>>When we print the object, we can see that the output looks different. 
+>>This is because while printing the object, the toString() method of the object class is called. 
+>>It formats the object in the default format.
+------------------------------------------------------
+71.How do you import a module from one file into another file?
+>>here take or create one file name like kc.py
+>>inthis kc.py file data using in another file so
+import kc 
+-----------------------------------------------------
+72.What is the use of None in Python?
+>>None:
+The None keyword is used to define a null value, or no value at all.
+EX:
+x = None
+print(x)
+-----------------------------------------------------
+73.Explain variable number of arguments in Python?
+FUNCTIONAL ARGUMENTS:
+    1>MANDATORY
+    2>DEFAULT
+    3>VARIABLE LENGTH,MANDATOTY/DEFAULT ARGUMENTS
+#######################################
+#Mandatory Arguements:
+def fun(a,b):
+    return a+b
+#print(fun(10))  #here passing single argument it show Error
+#print(fun()) #here passing 0 arguments it shows Error
+print(fun(10,20)) #must be pass 2arguements compulsary
+
+
+#DEFAULT ARGMNTS:
+def fun(a,b=7):
+    return a+b
+print(fun(10))  #here passing single elemnt ,default taken second element
+print(fun(10,30)) #here passing 2 argmnts second elemnt b is over ride .
+
+
+#VARIABLE LENGTH ARGMNTS:
+def fun(a,b=10,*c,**d):  #here c is tuple format(),d is dict format {}
+    print(a,type(a))
+    print(b,type(b))
+    print(c,type(c))
+    print(d,type(d))
+fun(10,20,30,40,e=100)   #10 <class 'int'>
+                          20 <class 'int'>
+                          (30, 40) <class 'tuple'>
+                          {'e': 100} <class 'dict'>
+---------------------------------------------------------
+74. What are Boolean data types?
+>>True,False
+EX:
+print(10 > 9) #True
+print(10 == 9) #False
+----------
+print(bool("Hello")) #True
+print(bool(15))#True  here other than True of False It given True.
+---------------------------------------------------------
+75.How do you convert the data from one type to another type?
+>>do like this
+1)string to list:
+s="charan"
+p=list(s)
+print(p)
+
+2)list to string
+l=['c', 'h', 'a', 'r', 'a', 'n']
+k="".join(l)
+print(k)
+
+3)list to tuple:
+l=[1,2,3,4]
+t=tuple(l)
+print(t)
+-----------------------------------------------------
+76.What is type casting?
+when you want to specify a type on to a variable. This can be done with casting.
+like Int,float string
+Ex:
+INTEGERS:                         FLOAT:                                 STRINGS:
+x = int(1)   # x will be 1     x = float(1)   # x will be 1.0       x=str("s1") #s1
+y = int(2.8) # y will be 2                                          y=str(2)  #2
+z = int("3") # z will be 3
+#################################CHARAN###################################

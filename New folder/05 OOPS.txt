@@ -1,0 +1,46 @@
+Methods:
+
+Instance Method:
+1.Used to access or modify the object state. 
+2.If we use instance variables inside a method, such methods are called instance methods. 
+3.It must have a self parameter to refer to the current object.
+
+Class method: 
+1.Used to access or modify the class state. 
+2.In method implementation, if we use only class variables, then such type of methods we should declare as a class method. 
+3.The class method has a cls parameter which refers to the class.
+
+Static method: 
+1.It is a general utility method that performs a task in isolation. 
+2.Inside this method, we don’t use instance or class variable because this static method doesn’t take any parameters 
+  like self and cls.
+
+Instance Variables:
+1.If the value of a variable varies from object to object, then such variables are called instance variables.
+2.Instance variables are declared inside a method using the self keyword.
+3.We can access instance variables using object ref and getattr(refname, 'instancevar') method.
+4.Dynamically We can add instance variables from the outside of class to a particular object
+  Syntax: object_referance.variable_name = value
+  a.We cannot add an instance variable to a class from outside because instance variables belong to objects.
+  b.Adding an instance variable to one object will not be reflected the remaining objects because every object
+    has a separate copy of the instance variable.
+5.We use the del statement and delattr() function to delete the attribute of an object.
+  Syntax:del objref.instancevar
+  Syntax:delattr(objref, 'instancevar')
+6.We can get the list of all the instance variables the object has. 
+  Use the __dict__ function of an object to get all instance variables along with their value.
+
+
+Class Variables:
+1.Class Variables are declared inside the class, and outside the mehtod
+2.Class Variables can be accessed inside the constructor
+3.Class Variables can be accessed inside the instance method
+4.Class variables are shared by all instances of a class. 
+  Using the class method we can modify the class state by changing the value of a class variable 
+  that would apply across all the class objects.
+5.We can dynamically delete the class methods from the class sing the del operator and delattr() method
+  Syntax: del class_name.class_method
+  Syntax: delattr(classname, 'methodname')
+
+
+

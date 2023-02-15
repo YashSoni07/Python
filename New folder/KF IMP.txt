@@ -1,0 +1,380 @@
+﻿1)DIF B/W LIST AND TUPLE
+
+      List  :                              tuple:
+>>it is mutable we can do            >>it is immutable we cant do modification
+modifications
+>>[]   Ex:l=[1,2,3]                  >>(,)   t=(1,2,3)
+>>occupies more space                >> occupies less space
+>>low perfomance compared to         >>high perfomance compared to list.
+tuple.
+>>heavy weight                     >>less weight
+>>significance of list is []       >>significance of tuple is(,)
+
+Explanation:
+
+l=[1,2,3,4,5,6,7]
+t=(1,2,3,4,5,6,7)
+import sys
+print(sys.getsizeof(l))#56bytes
+print(sys.getsizeof(t))#48bytes  
+            #here list & tuple having same data but it occupies different memorys.
+B)t=(1,2,3,[4,5],9) here in tuple append is possible or not
+possible here inside tuple one list is there
+t1=t[3].append(6)  
+print(t1) #(1,2,3,[4,5,6],9)
+    
+   A)CAN YOU MODIFY A TUPLE CONTAINED IN A LIST?
+   EXMPLE:YES
+          a=(1,2,[3,4])                                       #here 1,2 variables pointing same memory
+          print(id(a)) #55656968                                variable1-------|MEMORY
+          print(a)  #(1, 2, [3, 4])                             variable 2------!
+
+          a[2].append(5)
+          print(a) #(1, 2, [3, 4,5])
+          print(id(a)) #55656968
+                         #here ids are same
+   
+   B)CAN YOU MODIFY A LIST CONTAINED IN A TUPLE:
+   EXAMPLE:NO
+     X=[1,2,(1,2,3)]    #here these are not containing the values these are addresss where it stored
+                         #Here Not Posssible
+   
+         
+
+2)DIF B/W IMMUTABLE AND MUTABLE:
+MUTABLE:
+>>Mutablles meaning we can change the internal reference of the object.so we can modifiacations here
+     Example:List,Set,Dict
+IMMUTABLE:
+>>Immutable means we can't change the internanal reference of the object,we can't do any modifications.
+     Example:Strings,tuple,frozenset
+
+
+3)DIF B/W APPEND AND EXTEND:
+>>append is used to add an element  at the end of list 
+>>but extend is used to extebnd the list by appending the elements
+in the iterable(which have internal refference)
+
+l=[10,20,30,40,50]
+l.append(60)
+print(l)#[10, 20, 30, 40, 50, 60] here append value add at last ,here add single element
+        #index value is incresed by 1,append elements trated as a single index
+l.append([7,8,9])
+print(l) #[10, 20, 30, 40, 50, 60, [7, 8, 9]]#adding elements are single index
+
+
+l1=[10,20,30,40,50]
+l2=[70,80,90]
+l1.extend(l2)
+print(l1)  #[10, 20, 30, 40, 50, 70, 80, 90] here adding multiple elements
+l1.extend([7,8,9])
+   #index value is incresed depends on number elements extend to the list
+print(l1)#[10, 20, 30, 40, 50, 70, 80, 90, 7, 8, 9]
+        #adding elements are separate index
+
+
+4)DIFF B/W ARRAY AND LIST:
+ARRAY:Here array and list both are storing the data.
+>>arrays can store simalar data(homogeneous data)only.
+    EX:A=[1,2,3,4,5]
+LIST:List can store multiple types data(heterogenous data)
+    Ex:L=[1,2,3,'a','b']
+
+5)DIFF B/W DICT AND SET
+>>Here both are mutable data types in python.
+           DICT                            SET
+>>It is unordered                   >>It is unordered
+>>Key-value format                  >>only store immutable data
+>>{} it represent                   >>{}
+>>slicing is not done               >>slicing is not done  (because order is unordered)
+>>We can do midifications           >> We can do modifications
+>>duplicates are not allowed        >>duplicates are not allowed
+>>keys are unique and immutable
+>>dict mainly used to tell about    >>To perform operation on 2 different sets of data
+data.
+   Ex:{firstname:'kovuru'}
+ #here firstname specifys the data
+
+6)DIFF B/W INDEX AND FIND
+>>Here both are used to print the index of the Elements
+
+INDEX:here value is not available it shows value Error.
+     EX:
+        name = "charan"
+        print(name.index('a'))    #2
+
+        name = "charan"
+        print(name.index('z'))  #here z is not available it shows value Error
+
+FIND:here value is not available it shows -1.
+    EX:
+       name = "charan"
+       print(name.find('a'))   #2
+
+       name = "charan"
+       print(name.find('z'))   #here z is not available it returns -1.
+
+7)WHY DO YOU PREFER DICT RATHER THAN LIST:
+list and tuple doesn't tell about the data but has the value. 
+Dictionary says about the data also.has unique keys
+
+8)DIFR B/W SPLIT AND PARTITION:
+>>both are used to spliting the data.
+           SPLIT                                          PARTITION
+>>Split returns a list                          >>Partition returns a tuple.
+>>The size of list returned by a Split          >>The size of tuple returned by a partition is fixed and is always 3
+functions depends on the seperator
+>>Split can work without any arguments          >>For Partition an argument is compulsory, else returns an error
+  Ex:                                             EX:
+     name = "kovuru charan"                           name = "kovuru charan"
+     print(name.split())                              print(name.partition(" "))  #('kovuru', ' ', 'charan')
+           #here not passings args                              #here must be pass args like " ".
+
+
+8)WHY DICTS ARE FASTER THAN LISTS:
+>>a dictionary is a lookup, while a list is an iteration. 
+Dictionary uses a hash lookup, while your list requires walking through the list 
+until it finds the result from beginning to the result each time
+
+Lookups are faster in dictionaries because Python implements them using hash tables. 
+If we explain the difference by Big O concepts, 
+dictionaries have constant time complexity, O(1) while lists have linear time complexity, O(n).
+
+EXAMPLE:
+import time
+list=[]
+dict={}
+for i in range(10000):
+    list.append(i)
+
+for i in range(10000):
+    dict[i]=i
+
+k=time.time()
+for i in list:
+    if i==9999:
+        break
+ltime=time.time()-k
+print(ltime)  #0.001997709274291992  seconds
+
+k=time.time()
+value=dict[9999]    
+dtime=time.time()-k
+print(dtime)    #0.0 seconds
+
+
+9)DIFF B/W SET AND FROZENSET
+>>both duplicates are not allowed.
+>>constant lookup
+>>iterable (by using forloop and while loops)
+        SET                                             FROZENSET
+>>mutable we can do modifications          >>immutable so we can't do any modifications 
+>>it is unhasable                          >>hashable,so used as keys in dict.
+
+
+10)STRINGS ARE MUTABLE OR IMMUTABLE
+>>A string in Python is a sequence of characters
+>>string is order sequence and immutable datatype
+>>strings are immutable ,we can't do any modifications.
+                                    
+11)PROPERTIES OF DICT:
+>>It is unordered data type,it contains key value pairs.
+>>key&value separated by ':',keyvalue pairs separated by ','.enclosed by {}.
+>>it is mutable data type Ex:{'a':1,'b':2}
+>>duplicates not alllowed.
+>>slicing is not done.
+
+NOTE:A)keys must be immutable and hashable
+     B)Keys are unique throughout dictionary
+     C)only keys are immutable,total dict is mutable
+     D)There is No restrictions to the values.
+
+12)WHY LISTS ARE NOT USING DICT KEYS:
+>>Lists are not hashable(in interview u dont tell) and mutable data type ,So
+d={}
+a=[1,2]
+d[a]="charan"
+print(d)  #unhashable type list
+
+13)
+# Input1
+# array = [12, 1, 4, 3, 6, 9,2], sum = 17;
+# Output: {'Combinations of 17': [(12, 1, 4), (12, 3, 2), (6, 9, 2)]}
+# Input2
+# array = [12, 1, 4, 3, 6, 9,2], sum = 24;
+# Output: {'Combinations of 24': [(12, 3, 9)]}
+
+from itertools import combinations
+array = [12, 1, 4, 3, 6, 9,2]
+s = 17
+c=combinations(array,3)
+data=[]
+for i in c:
+    if sum(i)==s:
+        data.append(i)
+
+print({'Combinations of 17':data})
+
+from itertools import combinations
+array = [12, 1, 4, 3, 6, 9,2]
+s = 24
+d=[]
+combination=combinations(array,3)
+for i in combination:
+    if sum(i)==s:
+        d.append(i)
+
+print({'Combinations of 24':d})   
+
+from itertools import combinations
+array = [12, 1, 4, 3, 6, 9,2]
+c=combinations(array,2)
+d=[]
+for i in c:
+    d.append(i)
+print(d)
+
+##PRODUCT
+from itertools import product
+l1 = ['a', 'b', 'c']
+l2 = ['X', 'Y', 'Z']
+p=product(l1,l2)
+for i in p:
+    print(i)
+
+from itertools import product
+l1 = ['a', 'b', 'c']
+l2 = ['X', 'Y', 'Z']
+p=product(l1,l2,repeat=2)
+for i in p:
+    print(i)
+##PERMUTATIONS
+ from itertools import permutations
+kc=[1,2,3]
+jk=permutations(kc)
+for i in jk:
+    print(i)
+
+#here length is given like 2
+from itertools import permutations
+kc=[1,2,3]
+jk=permutations(kc,2)
+for i in jk:
+    print(i)
+
+14)PASS BY VALUE AND PASS BY REFERENCE:
+
+PASS BY VALUE:
+pass by value is nothing but ,copy of the original object is passed,
+changing the values of the copy object,will not change the value of original object.
+Ex:
+def hello(x):
+    x=45
+    print(x)
+    return
+x=15
+hello(x) #45
+print(x) #15
+
+PASS BY REFERENCE:
+pass by reference is nothing but,copy of the original object is passed,
+changing the values of the copy object,also edffect the value of original object.
+EX:
+a=[1,2,3,4]
+def hello(x):
+    x[0]=10
+    print(x)
+    return
+
+hello(a) #[10, 2, 3, 4]
+print(a) #[10, 2, 3, 4]
+
+
+15)HOW TO USE LIST ELEMENTS AS KEYS IN DICT:
+l=[1,2,3,4,5]
+print(dict.fromkeys(l))  #Here using fromkeys
+
+16)WHY DO YOU PREFER DICT RATHER THAN LIST:
+>>we use dictionaries rather than list because dictionary talks about information 
+but list can not talks about information
+
+17)DIFF B/W LIST AND ARRAY:
+         LIST                                       ARRAY
+>>can store heterogenous data             >>can strore homogeneous data
+>>Cannot directly handle                  >>directly handle arithmetic operations
+arithmetic operations
+>>Greater flexibility allows easy         >>Less flexibility since addition, deletion has to be done element wise
+modification(addition, deletion)of data  
+
+18)WHAT IS TIME COMPLEXITY AND HOW TO FIND IT?
+>>Time complexity is commonly estimated by counting the number of elementary operations 
+performed by the algorithm.
+
+DIFF B/W LIST COMPREHENSION AND LAMBDA FUNCTIONS:
+LIST:
+>>A list comprehension creates a new list by applying an expression or condition to 
+each element of the iterable
+>>It is a single function.Always returns a  list.
+>>perform simple functions,it having looping functions.
+Ex:
+x=[x for x in range(10)]
+print(x)
+
+LAMBDA:
+>>Lambda function is an anonymous function and is defined by a keyword lambda,
+>>which cannot be invoked by a function name.
+>>If you don’t want to use the code reusability then we can use lambda function. 
+Once the cursor goes for the next line then the allocated memory will be vanished 
+
+>>Only for functions,same as list comprehensions like single line.
+>>Doesnot have looping functionalitys
+>>Always returns a value
+EX:
+def fun(x):
+    return x*x
+print(list(map(lambda x:x*x,(1,2,3,4)))) #[1, 4, 9, 16] 
+
+GENARATOR:
+>>a Genarator function which genarate a value at runtime by using yield keyword.
+
+DIFF B/W DECARATOR AND GENARATOR:
+Decarator:without touching  any functionalitys
+where it is use:Function execution before ,after excecution
+
+
+#WHICH ONE IS FASTER TUPLE OR LIST
+tuple is faste because 
+ >>Tuples are stored in a single block of memory. Tuples are immutable so, 
+It doesn't require extra space to store new objects.
+>>Lists are allocated in two blocks: the fixed one with all the Python object information and
+ a variable sized block for the data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

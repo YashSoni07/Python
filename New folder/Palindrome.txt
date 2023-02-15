@@ -1,0 +1,18 @@
+Palindrome:
+==========
+A palindrome is a number or letter that remains the same even if the number and letters are inverted.
+
+Eg1:
+121, 11, 414, 1221, 74747 are the palindrome numbers.
+MOM, DAD, MADAM, REFER are the palindrome letters.
+Hello, Hi, How are not the palindrome letters
+
+Palindrome algorithm:
+---------------------
+1.Read the number or letter.
+2.Hold the letter or number in a temporary variable.
+3.Reverse the letter or number.
+4.Compare the temporary variable with reverses letter or number.
+5.If both letters or numbers are the same, print "this string/number is a palindrome."
+6.Else print, "this string/number is not a palindrome."
+

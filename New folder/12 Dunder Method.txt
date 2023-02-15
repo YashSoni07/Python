@@ -1,0 +1,39 @@
+Dunder() Method
+===============
+1.Magic methods in Python are the special methods that start and end with the double underscores. 
+  They are also called dunder methods.
+2.Magic methods are not meant to be invoked directly by you, but the invocation happens internally from the class
+3.For example, when you add two numbers using the + operator, internally, the __add__() method will be called.
+
+For example, the __add__ method is a magic method which gets called when we add two numbers using the + operator
+
+Eg:
+
+# using + operator without dunder method
+num = 10
+result = num + 5 # when we use 'num + 5' the + operator calls the __add__(5) method
+print(result) # 15
+
+# using dunder method
+num = 10
+result = num.__add__(5)
+print(result) # 15
+
+
+1.Languages such as Java and C# use the new operator to create a new instance of a class. 
+2.In Python the __new__() magic method is implicitly called before the __init__() method. 
+3.The __new__() method returns a new object, which is then initialized by __init__().
+
+Eg:
+class Cat:
+
+    def __new__(cls): # Overrides method in object
+        print('__new__ magic method is called')
+
+    def __init__(self):
+        print('__init__ magic method is called')
+
+Cat()
+
+Output:
+__new__ magic method is called
